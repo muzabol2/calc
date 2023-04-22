@@ -1,0 +1,85 @@
+:root {
+   --background-color: #0D1117;
+   --text-color: #FFFFFF;
+   --button-color: black;
+   --button-border-color: #FFFFFF;
+   --hover-color: rgba(255, 255, 255, 0.125);
+   --output-background-color: rgba(255, 255, 255, 0.125);
+   --output-border-color: #FFFFFF;
+   --output-text-color: rgba(255, 255, 255, .75);
+}
+
+.light-mode {
+   --background-color: #FFFFFF;
+   --text-color: #000000;
+   --button-color: #F0F0F0;
+   --button-border-color: #000000;
+   --hover-color: rgba(0, 0, 0, 0.125);
+   --output-background-color: #F0F0F0;
+   --output-border-color: #000000;
+   --output-text-color: rgba(0, 0, 0, .75);
+}
+
+*,
+*::before,
+*::after {
+   box-sizing: border-box;
+   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+   font-weight: normal;
+}
+
+body {
+   padding: 0;
+   margin: 0;
+   background-color: var(--background-color);
+   color: var(--text-color);
+}
+
+.calc-grid {
+   display: grid;
+   justify-content: center;
+   align-content: center;
+   min-height: 100vh;
+   grid-template-columns: repeat(4, 100px);
+   grid-template-rows: minmax(120px, auto) repeat(5, 100px);
+}
+
+.calc-grid>button {
+   cursor: pointer;
+   font-size: 2rem;
+   border: 1px solid var(--button-border-color);
+   outline: none;
+   background-color: var(--button-color);
+   color: var(--text-color);
+}
+
+.calc-grid>button:hover {
+   background-color: var(--hover-color);
+}
+
+.span-two {
+   grid-column: span 2;
+}
+
+.output {
+   grid-column: span 4;
+   background-color: var(--output-background-color);
+   border: 1px solid var(--output-border-color);
+   display: flex;
+   align-items: flex-end;
+   justify-content: space-around;
+   flex-direction: column;
+   padding: 10px;
+   word-wrap: break-word;
+   word-break: break-all;
+}
+
+.output .previous-operand {
+   color: var(--output-text-color);
+   font-size: 1.5rem;
+}
+
+.output .current-operand {
+   color: var(--output-text-color);
+   font-size: 2.5rem;
+}

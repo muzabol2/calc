@@ -40,6 +40,7 @@ body {
    display: grid;
    justify-content: center;
    align-content: center;
+   margin: 0 5px;
    min-height: 100vh;
    grid-template-columns: repeat(4, minmax(80px, 1fr));
    grid-template-rows: minmax(120px, auto) repeat(5, minmax(80px, auto));
@@ -49,6 +50,7 @@ body {
 .calc-grid>button {
    display: flex;
    justify-content: center;
+   align-items: center;
    cursor: pointer;
    font-size: 2.5rem;
    border: 1px solid var(--button-border-color);
@@ -87,21 +89,6 @@ body {
 .output .current-operand {
    color: var(--output-text-color);
    font-size: 2.5rem;
-}
-
-.toggle-button {
-   position: absolute;
-   top: 20px;
-   right: 20px;
-   background-color: var(--button-color);
-   border: 1px solid var(--button-border-color);
-   color: var(--text-color);
-   padding: 10px 20px;
-   cursor: pointer;
-}
-
-.toggle-button:hover {
-   background-color: var(--hover-color);
 }
 
 @media screen and (min-width: 768px) {

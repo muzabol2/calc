@@ -41,7 +41,6 @@ body {
    justify-content: center;
    align-content: normal;
    margin: 0 5px;
-   min-height: 100vh;
    grid-template-columns: repeat(4, minmax(80px, 1fr));
    grid-template-rows: minmax(90px, auto) repeat(5, minmax(80px, auto));
    gap: 5px;
@@ -89,6 +88,7 @@ body {
 
 @media screen and (min-width: 430px) {
    .calc-grid {
+      min-height: 100vh;
       align-content: center;
       grid-template-columns: repeat(4, 100px);
       grid-template-rows: minmax(120px, auto) repeat(5, 100px);

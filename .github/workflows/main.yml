@@ -18,3 +18,20 @@ jobs:
         with:
           branch: gh-pages
           folder: .
+      - name: Set Deployment URL
+        run: |
+          echo "https://${{ github.repository_owner }}.github.io/${{ github.repository_name }}/" > deployment_url.env
+        shell: bash
+      - name: Upload Deployment URL
+        uses: actions/upload-artifact@v2
+        with:
+          name: deployment_url
+          path: deployment_url.env
+      - name: Set Output
+        uses: actions/github-script@v4
+        env:
+          DEPLOYMENT_URL: ${{ steps.get_deployment_url.outputs.url }}
+        with:
+          script: |
+            console.log('Deployment URL:', process.env.DEPLOYMENT_URL);
+            core.setOutput('deployment_url', process.env.DEPLOYMENT_URL);

@@ -1,6 +1,8 @@
-const path = require('path');
+const path = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const BundleAnalyzerPlugin =
+  require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 
 module.exports = {
   mode: "production",
@@ -9,6 +11,16 @@ module.exports = {
     filename: "main.js",
     path: path.resolve(__dirname, "dist"),
     publicPath: "",
+  },
+  devServer: {
+    static: {
+      directory: path.resolve(__dirname, "dist"),
+    },
+    port: 3000,
+    open: true,
+    hot: true,
+    compress: true,
+    historyApiFallback: true,
   },
   plugins: [
     new MiniCssExtractPlugin({
@@ -22,7 +34,9 @@ module.exports = {
         removeComments: true,
         collapseWhitespace: true,
       },
+      favicon: "./src/favicon.ico",
     }),
+    new BundleAnalyzerPlugin(),
   ],
   module: {
     rules: [

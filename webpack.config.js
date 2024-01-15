@@ -4,6 +4,8 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const BundleAnalyzerPlugin =
   require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 
+const isDevelopment = process.env.NODE_ENV !== "production";
+
 module.exports = {
   mode: "production",
   entry: "./src/index.js",
@@ -36,7 +38,7 @@ module.exports = {
       },
       favicon: "./src/favicon.ico",
     }),
-    new BundleAnalyzerPlugin(),
+    ...(isDevelopment ? [new BundleAnalyzerPlugin()] : []),
   ],
   module: {
     rules: [

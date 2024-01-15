@@ -27,7 +27,6 @@
     "postcss-loader": "^7.3.4",
     "postcss-pxtorem": "^6.0.0",
     "webpack": "^5.89.0",
-    "webpack-bundle-analyzer": "^4.10.1",
     "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^4.15.1"
   }

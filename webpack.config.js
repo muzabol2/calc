@@ -1,10 +1,6 @@
 const path = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const BundleAnalyzerPlugin =
-  require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
-
-const isDevelopment = process.env.NODE_ENV !== "production";
 
 module.exports = {
   mode: "production",
@@ -38,7 +34,6 @@ module.exports = {
       },
       favicon: "./src/favicon.ico",
     }),
-    ...(isDevelopment ? [new BundleAnalyzerPlugin()] : []),
   ],
   module: {
     rules: [
